@@ -3,14 +3,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-class ListNode 
-{
-    int val;
-    ListNode next;
-    ListNode() {}
-    ListNode(int val) { this.val = val; }
-    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-}
 public class Problem7
 {
     public static int[] plusOne(int []digits)
@@ -64,13 +56,56 @@ public class Problem7
         }
         return maxstring;
     }
+    public static int myAtoi(String s)
+    {
+        s=s.trim();
+        String temp="";
+        int i=0;
+        if(s.charAt(0) == '+' || s.charAt(0) == '-')
+        {
+            temp =temp + s.charAt(0);
+            i++;
+        }
+        while((s.charAt(i) != ' ' && s.charAt(i) <='9' && s.charAt(i) >='0'))
+        {
+            temp =temp + s.charAt(i);
+            i++;
+        }
+        try
+        {
+            return (int)Double.parseDouble(temp);
+        }catch(Exception e)
+        {
+            return 0;
+        }
+    }
+    public static  int maxSubArray(int[] nums) 
+    {
+        int sum = nums[0];
+        int tempsum=0;
+        for(int i=0;i<nums.length;i++)
+        {
+            tempsum+=nums[i];
+            if(tempsum > sum)
+            {
+                sum = tempsum;
+            }
+            if(tempsum < 0)
+            {
+                tempsum=0;
+            }
+        }
+        return sum;
+    }
 
     public static void main(String[] args) 
     {
         // int digits[] = {4, 3, 2, 1};
         // System.out.print(plusOne(digits));
         //System.out.println(lengthOfLongestSubstring("abcabcbb"));
-
+        //System.out.println(myAtoi("words and 987"));
+        int nums[] = new int[]{-2,1,-3,4,-1,2,1,-5,4};
+        System.out.println(maxSubArray(nums));
     }
 
 }
