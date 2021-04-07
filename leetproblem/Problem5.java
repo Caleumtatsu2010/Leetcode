@@ -1,129 +1,123 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import java.util.HashSet;
+import java.util.Collections;
 import java.util.List;
-import java.util.Set;
+import java.util.Stack;
+
 
 public class Problem5 
 {
-    public static List<List<Integer>> fourSum(int[] nums, int target) 
+    public static boolean isValid(String s) 
     {
-        Arrays.sort(nums);
-        List<List<Integer>> result = new ArrayList<List<Integer>>();
-        Set<List<Integer>> set = new HashSet<List<Integer>>();
-        for(int i=0;i<nums.length-3;i++)
+        Stack st = new Stack();
+        if(s.isEmpty())
+            return false;
+        for(int i=0;i<s.length();i++)
         {
-            for(int j=i+1;j<nums.length-2;j++)
+            if(s.charAt(i) == '(' || s.charAt(i) == '[' || s.charAt(i) == '{')
             {
-                for(int k=j+1;k<nums.length-1;k++)
-                {
-                    for(int l =k+1;l<nums.length;l++)
-                    {
-                        if(nums[i] + nums[j] + nums[k] + nums[l] == target)
-                        {
-                            List<Integer> list = new ArrayList<Integer>();
-                            list.add(nums[i]);
-                            list.add(nums[j]);
-                            list.add(nums[k]);
-                            list.add(nums[l]);
-                            set.add(list);
+                st.push(s.charAt(i));
+            }
+            else if(st.isEmpty() || (s.charAt(i) == ')' && st.peek() != "(") || (s.charAt(i) == ']' && st.peek() != "[") || (s.charAt(i) == '}' && st.peek() != "{"))
+            {
+                return false;
+            }
+            else
+            {
+                st.pop();
+            }
+        }
+        if(st.isEmpty())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public static int climbingStairs(int i, int n)
+    {
+        if(i > n)
+        {
+            return 0;
+        }
+        if(i == n)
+        {
+            return 1;
+        }
+        else
+        {
+            return climbingStairs(i+1, n) + climbingStairs(i+2, n);
+        }
+    }
+    public static int maxProfit(int[] prices) 
+    {
+        int min = Integer.MAX_VALUE;
+        int maxprofit=0;
+        for(int i=0;i<prices.length;i++)
+        {
+            if(prices[i] < min)
+            {
+                min = prices[i];//searching for buy (minprice)
+            }
+            else if( prices[i] - min > maxprofit)//avoid profit <= 0
+            {
+                maxprofit = prices[i] - min;//profit = sell - buy(minprice)
+            }
+        }
 
-                            
-                        }
-                    }
+        return maxprofit;
+    }
+    public static int missingNumber(int[] nums) 
+    {
+        int miss;
+        List<Integer> tmp = new ArrayList<Integer>();
+        for(int i:nums)
+        {
+            tmp.add(i);
+        }
+        for(int i =0;i<nums.length+1;i++)//range
+        {
+            if(!tmp.contains(i))
+            {
+                return i;
+            }
+        }
+        return -1;
+
+    }
+    public static int majorityElement(int[] nums) {
+        int n = nums.length / 2;
+        int count=0;
+        for(int i=0;i<nums.length;i++)
+        {
+            for(int j=0;j<nums.length;j++)
+            {
+                if(nums[i] == nums[j])
+                {
+                    count++;
                 }
             }
-        }
-        for(List<Integer> i : set)
-        {
-            result.add(i);
-        }
-        return result;
-        
-    }
-    public static boolean isPalindrome(String str)
-    {
-        int i = 0, j = str.length() - 1; 
-        while (i < j) 
-        { 
-            if (str.charAt(i) != str.charAt(j)) 
-                return false; 
-            i++; 
-            j--; 
-        } 
-        return true; 
-    }
-    public static String findmaxString(List<String> list)
-    {
-        String max = list.get(0);
-        for(int i=1;i<list.size();i++)
-        {
-            if(list.get(i).length() > max.length())
+            if(count > n)
             {
-                max = list.get(i);
+                return nums[i];
             }
         }
-        return max;
-    }
-    public static String longestPalindrome(String str) throws IndexOutOfBoundsException
-    {
-        List<String> list = new ArrayList<String>();
-        for(int i=0;i<str.length();i++)
-        {
-            for(int j=i+1;j<=str.length();j++)
-            {
-                if(isPalindrome(str.substring(i, j)))
-                {
-                    list.add(str.substring(i, j));
-                } 
+        return -1;
 
-            }
-        }
-        return findmaxString(list);
     }
-    public static List<List<Integer>> combinationSum(int[] candidates, int target) 
+    public static void main(String[] args) 
     {
-        List<List<Integer>> results = new ArrayList<>();
-        if (candidates == null || candidates.length == 0) 
-        {
-            return results;
-        }
-        Arrays.sort(candidates);
-        List<Integer> combination = new ArrayList<>();
-        toFindCombinationsToTarget(results, combination, candidates, target, 0);
+        //System.out.println(isValid("()[]{}"));
+        //System.out.println(climbingStairs(0, 3));
+        //int a[] = new int[]{9,6,4,2,3,5,7,0,1};
+        // System.out.println(maxProfit(a));
+        int nums[] = new int[]{2,2,1,1,1,2,2};
+        System.out.println(majorityElement(nums));
         
-        return results;
-    }
-    public static void toFindCombinationsToTarget(List<List<Integer>> results, List<Integer> combination, int[] candidates, int target, int startIndex) {
-        if (target == 0) {
-            results.add(new ArrayList<>(combination));
-            return;
-        }
-        
-        for (int i = startIndex; i < candidates.length; i++) {
-            if (candidates[i] > target) {
-                break;
-            }         
-            
-            combination.add(candidates[i]);
-            toFindCombinationsToTarget(results, combination, candidates, target - candidates[i], i);
-            combination.remove(combination.size() - 1);
-        }        
-    }
-    
 
-    public static void main(String[] args) throws IndexOutOfBoundsException
-    {
-        // int nums[] = new int[]{1, 0, -1, 0, -2, 2};
-        // System.out.println(fourSum(nums, 0));
-        System.out.println(longestPalindrome("babad"));
-        // int candidates[] = new int[]{2, 6, 3, 7};
-        // System.out.println(combinationSum(candidates, 8));
-        
-    
         
     }
-    
     
 }
