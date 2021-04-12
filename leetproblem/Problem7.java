@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Problem7
@@ -58,9 +59,48 @@ public class Problem7
         }
         return result;
     }
+    public static boolean canConstruct(String ransomNote, String magazine) 
+    {
+        
+        if (ransomNote.length() > magazine.length())
+        {
+            return false;
+        } 
+        HashMap <Character, Integer> hashMap = new HashMap <Character, Integer>();
+        for (int i=0;i<magazine.length();i++) 
+        {
+            char ch = magazine.charAt(i);
+            if (hashMap.containsKey(ch)) 
+            {
+                hashMap.put(ch, hashMap.get(ch)+1);
+            } else 
+            {
+                hashMap.put(ch, 1);
+            }   
+        }
+
+        for (int i=0;i<ransomNote.length();i++) 
+        {
+            char ch = ransomNote.charAt(i);
+            if (!hashMap.containsKey(ch)) return false;
+            else 
+            {
+                if (hashMap.get(ch) != 0) 
+                {
+                    hashMap.put(ch, hashMap.get(ch)-1);
+                } else
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    
     public static void main(String[] args) {
         int []nums = new int[]{1,1,1,3,3,4,3,2,4,2};
         //System.out.println(containsDuplicate(nums));
         //System.out.println(frequencyNumbers(nums));
+        System.out.println(canConstruct("aaa", "aab"));
     }
 }
