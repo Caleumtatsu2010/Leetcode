@@ -97,10 +97,11 @@ public class Problem7
         return true;
     }
     
+    
     public static void main(String[] args) {
         int []nums = new int[]{1,1,1,3,3,4,3,2,4,2};
         //System.out.println(containsDuplicate(nums));
         //System.out.println(frequencyNumbers(nums));
-        System.out.println(canConstruct("aaa", "aab"));
+        System.out.println(canConstruct("aa", "aab"));
     }
 }
