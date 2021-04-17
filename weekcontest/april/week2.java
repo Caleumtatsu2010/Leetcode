@@ -34,6 +34,7 @@ public class week2
         return a;
         
     }
+    
     public static void main(String[] args) {
         System.out.println(constructArray(3, 2));
     }

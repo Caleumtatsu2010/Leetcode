@@ -96,12 +96,25 @@ public class Problem7
         }
         return true;
     }
-    
-    
+    public static int countNegatives(int[][] grid) 
+    {
+		int count = 0;
+		for(int i=0;i<grid.length;i++)
+        {
+			for(int j=0;j<grid[0].length;j++)
+            {
+				if(grid[i][j]>=0) count++;
+				else break; // stop counting if negative hit since the rest will be negative also
+			}            
+		}
+		return grid.length*grid[0].length - count;
+	}
     public static void main(String[] args) {
         int []nums = new int[]{1,1,1,3,3,4,3,2,4,2};
         //System.out.println(containsDuplicate(nums));
         //System.out.println(frequencyNumbers(nums));
-        System.out.println(canConstruct("aa", "aab"));
+        //System.out.println(canConstruct("aa", "aab"));
+        int[][] grid = {{4,3,2,-1},{3,2,1,-1},{1,1,-1,-2},{-1,-1,-2,-3}};
+        System.out.println(countNegatives(grid));
     }
 }

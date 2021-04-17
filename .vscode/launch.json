@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch week3",
+            "request": "launch",
+            "mainClass": "week3",
+            "projectName": "Leetcode_280ba74e"
+        },
+        {
+            "type": "java",
             "name": "Launch week2",
             "request": "launch",
             "mainClass": "week2",
