@@ -1,14 +1,9 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-class ListNode 
-{
-    int val;
-    ListNode next;
-    ListNode() {}
-    ListNode(int val) { this.val = val; }
-    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-}
+
 public class week3
 {
     public static String removeDuplicates(String s, int k) 
@@ -61,12 +56,29 @@ public class week3
         }
         return count;
     }
+    //[root, left , right]
+    public static List<Integer> preorder(Node root) 
+    {
+        List<Integer> result = new ArrayList<>();
+        if(root = null)
+        {
+            return result;
+        }
+        result.add(root);
+        for(Node child:root.children)
+        {
+            preorder(child);
+        }
+        return result;
+    }
     public static void main(String[] args) 
     {
         //System.out.println(removeDuplicates("deeedbbcccbdaa", 3));
-        int []nums = new int[]{1,2,3};
-        System.out.println(combinationSum4(nums, 3));
+        // int []nums = new int[]{1,2,3};
+        // System.out.println(combinationSum4(nums, 3));
         
-        
+
+
     }
 }
+
