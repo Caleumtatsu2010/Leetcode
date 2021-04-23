@@ -35,10 +35,6 @@ public class week3
         
         return 0;
     }
-    // public static ListNode removeNthFromEnd(ListNode head, int n) 
-    // {
-    
-    // }
     public static int combinationSum4(int[] nums, int target) 
     {
         if(target == 0)
@@ -57,19 +53,23 @@ public class week3
         return count;
     }
     //[root, left , right]
-    public static List<Integer> preorder(Node root) 
+    public static List<Integer> preorder(Node root) //full method and Tree in Node.java
     {
         List<Integer> result = new ArrayList<>();
-        if(root = null)
+        if(root == null)
         {
             return result;
         }
-        result.add(root);
+        result.add(root.val);
         for(Node child:root.children)
         {
             preorder(child);
         }
         return result;
+    }
+    public static int minimumTotal(List<List<Integer>> triangle) 
+    {
+        
     }
     public static void main(String[] args) 
     {

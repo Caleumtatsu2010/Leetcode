@@ -23,7 +23,10 @@ public class Problem8
     //         listin.removeLast();
     //     }
     // }
-    
+    public static int subarraySum(int[] nums, int k) 
+    {
+        
+    }
     public static void main(String[] args) 
     {
         
