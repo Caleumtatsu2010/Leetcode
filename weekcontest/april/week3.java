@@ -3,7 +3,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-
+class ListNode 
+{
+    int val;
+    ListNode next;
+    ListNode(int val )
+    {
+        this.val = val;
+    }
+    ListNode(int val, ListNode next)
+    {
+        this.val = val;
+        this.next = next;
+    }
+}
 public class week3
 {
     public static String removeDuplicates(String s, int k) 
@@ -34,6 +47,25 @@ public class week3
     {
         
         return 0;
+    }
+    public ListNode removeNthFromEnd(ListNode head, int n) 
+    {
+        ListNode fast = head, slow = head;
+        for (int i = 0; i < n; i++) 
+        {
+            fast = fast.next;
+        }
+        if (fast == null) return head.next;
+        while (fast.next != null) 
+        {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        slow.next = slow.next.next;
+        return head;
+    }
+
+        
     }
     public static int combinationSum4(int[] nums, int target) 
     {
@@ -66,10 +98,6 @@ public class week3
             preorder(child);
         }
         return result;
-    }
-    public static int minimumTotal(List<List<Integer>> triangle) 
-    {
-        
     }
     public static void main(String[] args) 
     {
