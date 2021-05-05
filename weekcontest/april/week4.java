@@ -107,7 +107,7 @@ public class week4
         // int [][]matrix = {{1,2,3}, {4,5,6}, {7,8,9}};
         // rotate(matrix);
         //System.out.println(isPowerOfThree(2));
-        int []h = {4,12,2,7,3,18,20,3,19};
-        System.out.println(furthestBuilding(h, 10, 2));
+        // int []h = {4,12,2,7,3,18,20,3,19};
+        // System.out.println(furthestBuilding(h, 10, 2));
     }
 }
