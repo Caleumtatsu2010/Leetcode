@@ -62,11 +62,35 @@ public class Problem8
         return -1;
         
     }
+    public static int jump(int[] nums) 
+    {
+        if(nums.length == 0)return -1;
+        if(nums.length == 1)return 0;
+        
+        int jump = 1;
+        int farthest = nums[0];
+        int end = nums[0];
+        
+        for(int i = 1;i< nums.length;i++)
+        {
+            if(i == nums.length-1)
+                return jump;
+            farthest = Math.max(nums[i] + i, farthest);
+            if(i == end)
+            {
+                end = farthest;
+                jump++;
+            }
+        }
+        
+        return jump;
+    }
     public static void main(String[] args) 
     {
         //int []nums = {1,2,3,1,1,3};
         //System.out.println(numIdenticalPairs(nums));
         System.out.println(strStr("abcdeeefgh", "eee"));
+        System.out.println(jump(new int[]{2,3,1,1,4}));
 
     }
     
