@@ -23,9 +23,20 @@ public class Problem9 {
         res[0] = 1;
         return res;
     }
+    public static int mySqrt(int x) {
+        int count = 0;
+        for(int i=1; i<=x; i += 2)
+        {
+            x -= i;
+            count++;
+        }
+        return count;
+        
+    }
     public static void main(String[] args) {
-        int []nums = {9,2,9};
-        System.out.println(Arrays.toString(plusOne(nums)));
+        //int []nums = {9,2,9};
+        //System.out.println(Arrays.toString(plusOne(nums)));
+        System.out.println(mySqrt(25));
         
     }
     
