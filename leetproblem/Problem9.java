@@ -1,5 +1,13 @@
 import java.util.Arrays;
 
+class ListNode 
+{
+        int val;
+         ListNode next;
+         ListNode() {}
+         ListNode(int val) { this.val = val; }
+         ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+}
 public class Problem9 {
 
     public static int[] plusOne(int[] digits) 
@@ -62,11 +70,28 @@ public class Problem9 {
         return nums;
 
     }
+    public static ListNode deleteDuplicates(ListNode head) 
+    {
+        ListNode temp = head;//create temp node to store head node
+        while(temp != null && temp.next != null) 
+        {
+            if(temp.val == temp.next.val){
+                temp.next = temp.next.next;
+            }
+            else temp = temp.next;
+        }
+        return head;
+    
+    }
+
     public static void main(String[] args) {
-        int []nums = {9,2,9,5,3,8,6};
+        //int []nums = {9,2,9,5,3,8,6};
         //System.out.println(Arrays.toString(plusOne(nums)));
         //System.out.println(mySqrt(25));
-        System.out.println(Arrays.toString(sortArray(nums)));
+        //System.out.println(Arrays.toString(sortArray(nums)));
+
+        
+
         
     }
     
