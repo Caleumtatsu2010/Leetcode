@@ -23,9 +23,30 @@ public class week4 {
         palindromeArray[length - 1] = 'b';
         return String.valueOf(palindromeArray);
     }
+   
+    public static int tribonacci(int n) 
+    {
+        if(n < 2)
+        {
+            return n;
+        }
+            
+        int x = 0, y = 1, z = 1, sum = 2;
+        
+        while(n != 2)
+        {
+            x = y;
+            y = z;
+            z = sum;
+            sum = x + y + z;
+            n--;
+        }
+        
+        return z;
+    }
 
     public static void main(String[] args) {
-        System.out.println(5/2);
+        System.out.println(tribonacci(4));
     }
 
 }
