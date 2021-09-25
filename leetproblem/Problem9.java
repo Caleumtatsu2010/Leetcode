@@ -141,6 +141,19 @@ public class Problem9 {
     }
 
 
+    static List<Integer> list = new ArrayList<Integer>();
+    public static List<Integer> inorderTraversal(TreeNode root) {
+
+         if(root !=  null) 
+         {
+            inorderTraversal(root.left);
+            //Visit the node by Printing the node data
+            list.add(root.val);
+            inorderTraversal(root.right);
+        }
+        return list;
+    }
+
 
     public static void main(String[] args) {
         // int []nums = {9,2,9,5,3,8,6};
@@ -148,8 +161,22 @@ public class Problem9 {
         // System.out.println(mySqrt(25));
         // System.out.println(Arrays.toString(sortArray(nums)));
         //SelfAvoidingWalk(4);
+        
 
 
     }
 
+}
+class TreeNode 
+{
+         int val;
+         TreeNode left;
+         TreeNode right;
+        TreeNode() {}
+         TreeNode(int val) { this.val = val; }
+         TreeNode(int val, TreeNode left, TreeNode right) {
+             this.val = val;
+             this.left = left;
+            this.right = right;
+         }
 }
