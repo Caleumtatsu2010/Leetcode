@@ -44,9 +44,32 @@ public class week4 {
         
         return z;
     }
-
-    public static void main(String[] args) {
-        System.out.println(tribonacci(4));
+    public static int[] sortArrayByParityII(int[] nums) 
+    {
+        int n = nums.length;
+        int result[] = new int[n];
+        int even = 0;
+        int odd = 1;
+        for(int i=0;i<n;i++)
+        {
+            if(nums[i]%2 == 0)
+            {
+                result[even] = nums[i];
+                even += 2;
+            }
+            else
+            {
+                result[odd] = nums[i];
+                odd += 2;
+            }
+        }
+        return result;
+    }
+    public static void main(String[] args) 
+    {
+        int nums[] = new int[]{4,2,5,7};
+        //System.out.println(tribonacci(4));
+        System.out.println(Arrays.toString(sortArrayByParityII(nums)));
     }
 
 }
