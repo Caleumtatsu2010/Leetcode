@@ -44,8 +44,36 @@ public class week4 {
         
         return z;
     }
+    public static int numUniqueEmails(String[] emails) 
+    {
+        HashSet<String> set = new HashSet<>();
+        for(String email : emails)
+        {
+           int  a = email.indexOf("@");
+           String domain = email.substring(a, email.length());
+           String local = email.substring(0, a);
+           StringBuilder sb = new StringBuilder();
+           for(char ch: local.toCharArray())
+           {
+               if(ch == '.')
+               {
+                   continue;
+               }
+               if(ch == '+')
+               {
+                   break;
+               }
+               sb.append(ch);
+           }
+           sb.append(domain);
+           set.add(sb.toString());
+        }
+       
+        return  set.size();;
+    }
     public static int[] sortArrayByParityII(int[] nums) 
     {
+
         int n = nums.length;
         int result[] = new int[n];
         int even = 0;
@@ -67,9 +95,11 @@ public class week4 {
     }
     public static void main(String[] args) 
     {
-        int nums[] = new int[]{4,2,5,7};
+        //int nums[] = new int[]{4,2,5,7};
         //System.out.println(tribonacci(4));
-        System.out.println(Arrays.toString(sortArrayByParityII(nums)));
+        String []emails = new String[]{"test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"};
+        //System.out.println(Arrays.toString(sortArrayByParityII(nums)));
+        numUniqueEmails(emails);
     }
 
 }
