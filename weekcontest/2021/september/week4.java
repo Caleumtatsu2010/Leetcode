@@ -97,9 +97,9 @@ public class week4 {
     {
         //int nums[] = new int[]{4,2,5,7};
         //System.out.println(tribonacci(4));
-        String []emails = new String[]{"test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"};
+        //String []emails = new String[]{"test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"};
         //System.out.println(Arrays.toString(sortArrayByParityII(nums)));
-        numUniqueEmails(emails);
+        //numUniqueEmails(emails);
     }
 
 }
