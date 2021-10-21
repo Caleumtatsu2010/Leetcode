@@ -69,7 +69,7 @@ public class week4 {
            set.add(sb.toString());
         }
        
-        return  set.size();;
+        return  set.size();
     }
     public static int[] sortArrayByParityII(int[] nums) 
     {
@@ -93,10 +93,16 @@ public class week4 {
         }
         return result;
     }
+    static void printblue(String str){
+    System.out.println("\u001B[34m"+str+ "\u001B[0m");
+    }
     public static void main(String[] args) 
     {
-        //int nums[] = new int[]{4,2,5,7};
+        int nums[] = new int[]{4,2,5,7};
         //System.out.println(tribonacci(4));
+
+
+        
         //String []emails = new String[]{"test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"};
         //System.out.println(Arrays.toString(sortArrayByParityII(nums)));
         //numUniqueEmails(emails);
