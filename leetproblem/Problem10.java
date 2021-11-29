@@ -125,6 +125,7 @@ public class Problem10 {
     }
 
 
+
     public static void main(String[] args) {
         // System.out.println(reverseWords("a good example"));
         // System.out.println(frequencySort("aaaa"));
@@ -132,7 +133,7 @@ public class Problem10 {
         //int[] nums = new int[] { 1, 3, 5, 6 };
         // System.out.println(Arrays.toString(productExceptSelf(nums)));
         //System.out.println(searchInsert(nums, 7));
-        int[] colors = new int[] { 1,1,1,6,1,1,1};
-        System.out.println(maxDistance(colors));
+        // int[] colors = new int[] { 1,1,1,6,1,1,1};
+        // System.out.println(maxDistance(colors));
     }
 }
